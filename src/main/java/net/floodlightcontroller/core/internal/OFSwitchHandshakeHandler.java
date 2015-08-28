@@ -1239,7 +1239,8 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 				log.info("Clearing flow tables of {} on initial role as MASTER.", sw.getId().toString());
 				clearAllTables();
 			}
-			addDefaultFlows();
+			// Commented out to avoid flooding of controller
+			// addDefaultFlows();
 		}
 
 		@LogMessageDoc(level="WARN",

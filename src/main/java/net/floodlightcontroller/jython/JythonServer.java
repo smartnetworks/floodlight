@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.python.util.PythonInterpreter;
+// import org.python.util.PythonInterpreter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,6 +60,17 @@ public class JythonServer extends Thread {
      * @see java.lang.Thread#run()
      */
     public void run() {
+
+        while(true) {
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        /*
         PythonInterpreter p = new PythonInterpreter();
         for (String name : this.locals.keySet()) {
             p.set(name, this.locals.get(name));
@@ -80,6 +91,6 @@ public class JythonServer extends Thread {
         	p.exec("run_server(port=" + this.port + ", locals=locals())");
         } else {
         	p.exec("run_server(port=" + this.port + ", host='" + this.host + "', locals=locals())");
-        }
+        }*/
     }
 }

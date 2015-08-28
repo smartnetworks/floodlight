@@ -8,7 +8,7 @@ import org.projectfloodlight.openflow.protocol.OFMessage;
 import org.projectfloodlight.openflow.protocol.OFType;
 import org.projectfloodlight.openflow.types.DatapathId;
 import org.projectfloodlight.openflow.types.OFAuxId;
-import org.python.google.common.base.Preconditions;
+//import org.python.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -126,9 +126,9 @@ public class OFConnectionCounters {
                                 DatapathId dpid,
                                 OFAuxId auxId) {
 
-        Preconditions.checkNotNull(counters, "Counters must not be null");
-        Preconditions.checkNotNull(dpid, "dpid must not be null");
-        Preconditions.checkNotNull(auxId, "auxid must not be null");
+        //Preconditions.checkNotNull(counters, "Counters must not be null");
+        //Preconditions.checkNotNull(dpid, "dpid must not be null");
+        //Preconditions.checkNotNull(auxId, "auxid must not be null");
 
         String stringId = dpid.toString() +":" + auxId.toString();
         dpidAndConnIdString = stringId;
