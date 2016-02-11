@@ -310,7 +310,7 @@ class OFChannelHandler extends IdleStateAwareChannelHandler {
 			if (version.compareTo(factory.getVersion()) < 0) {
 				factory = OFFactories.getFactory(version);
 			} /* else The controller's version is < or = the switch's, so keep original controller factory. */
-			
+
 			OFMessageDecoder decoder = pipeline.get(OFMessageDecoder.class);
 			decoder.setVersion(version);
 			setState(new WaitFeaturesReplyState());
@@ -332,6 +332,12 @@ class OFChannelHandler extends IdleStateAwareChannelHandler {
 		WaitFeaturesReplyState() {
 			super(false);
 		}
+
+		@Override
+		void processOFHello(OFHello m) {
+			// we only expect hello in the WAIT_HELLO state, but let it slide
+		}
+
 		@Override
 		void processOFFeaturesReply(OFFeaturesReply  m)
 				throws IOException {
@@ -339,8 +345,8 @@ class OFChannelHandler extends IdleStateAwareChannelHandler {
 
 			// Mark handshake as completed
 			setState(new CompleteState());
-
 		}
+
 		@Override
 		void enterState() throws IOException {
 			sendFeaturesRequest();

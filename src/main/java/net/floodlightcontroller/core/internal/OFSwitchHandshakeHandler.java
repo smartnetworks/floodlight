@@ -100,7 +100,7 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 	private OFFactory factory = OFFactories.getFactory(OFVersion.OF_13);
 	private final OFFeaturesReply featuresReply;
 	private final Timer timer;
-	
+
 	private volatile OFControllerRole initialRole = null;
 
 	private final ArrayList<OFPortStatus> pendingPortStatusMsg;
@@ -131,6 +131,7 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 		/** The request timed out */
 		NO_REPLY;
 	}
+
 	/**
 	 * A utility class to handle role requests and replies for this channel.
 	 * After a role request is submitted the role changer keeps track of the
@@ -431,7 +432,7 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 	}
 
 	/**
-	 * Removes all present flows 
+	 * Removes all present flows
 	 */
 	private void clearAllTables() {
 		/*
@@ -471,14 +472,14 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 		}
 	}
 
-	/** 
+	/**
 	 * Adds an initial table-miss flow to each
 	 * and every table on the switch. This replaces the default behavior of
 	 * forwarding table-miss packets to the controller. The table-miss flows
-	 * inserted will forward all packets that do not match a flow to the 
+	 * inserted will forward all packets that do not match a flow to the
 	 * controller for processing.
-	 * 
-	 * Adding the default flow only applies to OpenFlow 1.3+ switches, which 
+	 *
+	 * Adding the default flow only applies to OpenFlow 1.3+ switches, which
 	 * remove the default forward-to-controller behavior of flow tables.
 	 */
 	private void addDefaultFlows() {
@@ -495,7 +496,7 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 					.setOutPort(OFPort.CONTROLLER)
 					.build();
 			this.sw.write(deleteFlow);
-						
+
 			ArrayList<OFAction> actions = new ArrayList<OFAction>(1);
 			actions.add(factory.actions().output(OFPort.CONTROLLER, 0xffFFffFF));
 			ArrayList<OFMessage> flows = new ArrayList<OFMessage>();
@@ -837,7 +838,6 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 				break;
 			}
 		}
-
 	}
 
 	/**
@@ -932,18 +932,19 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 			/*
 			 * HP ProCurve switches do not support
 			 * the ofpt_barrier_request message.
-			 * 
+			 *
 			 * Look for an error from a bad ofpt_barrier_request,
 			 * log a warning, but proceed.
 			 */
 			if (m.getErrType() == OFErrorType.BAD_REQUEST &&
-					((OFBadRequestErrorMsg) m).getCode() == OFBadRequestCode.BAD_TYPE &&
-					((OFBadRequestErrorMsg) m).getData().getParsedMessage().get() instanceof OFBarrierRequest) {
-				log.warn("Switch does not support Barrier Request messages. Could be an HP ProCurve.");
+					((OFBadRequestErrorMsg) m).getCode() == OFBadRequestCode.BAD_TYPE /*&&
+					((OFBadRequestErrorMsg) m).getData().getParsedMessage().get() instanceof OFBarrierRequest*/) {
+				log.warn("Switch does not support all handshake messages -- let it slide.");
+				// log.warn("Switch does not support Barrier Request messages. Could be an HP ProCurve.");
 			} else {
 				logErrorDisconnect(m);
 			}
-		} 
+		}
 
 		@Override
 		void enterState() {
@@ -1132,7 +1133,6 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 		OFSwitchAppHandshakePlugin getCurrentPlugin() {
 			return plugin;
 		}
-
 	}
 
 	/**
@@ -1319,7 +1319,7 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 				log.error("Attempted to change to invalid Nicira role {}.", m.getRole().toString());
 				return;
 			}
-			/* 
+			/*
 			 * This will get converted back to the correct factory of the switch later.
 			 * We will use OFRoleRequest though to simplify the API between OF versions.
 			 */
@@ -1430,7 +1430,7 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 				log.error("Attempted to change to invalid Nicira role {}.", m.getRole().toString());
 				return;
 			}
-			/* 
+			/*
 			 * This will get converted back to the correct factory of the switch later.
 			 * We will use OFRoleRequest though to simplify the API between OF versions.
 			 */
