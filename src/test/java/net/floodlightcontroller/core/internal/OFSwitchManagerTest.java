@@ -35,7 +35,7 @@ import static org.junit.Assert.fail;
 
 import java.util.List;
 
-import org.jboss.netty.util.Timer;
+import io.netty.util.Timer;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,8 +50,6 @@ import net.floodlightcontroller.core.IOFSwitchListener;
 import net.floodlightcontroller.core.IShutdownListener;
 import net.floodlightcontroller.core.IShutdownService;
 import net.floodlightcontroller.core.LogicalOFMessageCategory;
-import net.floodlightcontroller.core.NullConnection;
-import net.floodlightcontroller.core.OFSwitch;
 import net.floodlightcontroller.core.PortChangeType;
 import net.floodlightcontroller.core.SwitchDescription;
 import net.floodlightcontroller.core.module.FloodlightModuleContext;
@@ -198,7 +196,7 @@ public class OFSwitchManagerTest{
         expect(sw.getSwitchDescription()).andReturn(description).anyTimes();
         expect(sw.getBuffers())
                 .andReturn(featuresReply.getNBuffers()).anyTimes();
-        expect(sw.getTables())
+        expect(sw.getNumTables())
                 .andReturn(featuresReply.getNTables()).anyTimes();
         expect(sw.getCapabilities())
                 .andReturn(featuresReply.getCapabilities()).anyTimes();
@@ -258,6 +256,7 @@ public class OFSwitchManagerTest{
         expect(sw.getStatus()).andReturn(SwitchStatus.MASTER).anyTimes();
         sw.disconnect();
         expectLastCall().once();
+        expect(sw.getOFFactory()).andReturn(factory).once();
         replay(sw, listener); // nothing recorded
         switchManager.switchAdded(sw);
         switchManager.switchStatusChanged(sw, SwitchStatus.HANDSHAKE, SwitchStatus.MASTER);
