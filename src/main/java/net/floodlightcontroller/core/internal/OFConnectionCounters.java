@@ -56,7 +56,7 @@ public class OFConnectionCounters {
     private final IDebugCounter ctrWriteSetAsync;
     private final IDebugCounter ctrWriteMeterMod;
     private final IDebugCounter ctrWriteRoleStatus;
-    private final IDebugCounter ctrWriteTableStatus;   
+    private final IDebugCounter ctrWriteTableStatus;
     private final IDebugCounter ctrWriteRequestForward;
     private final IDebugCounter ctrWriteBundleControl;
     private final IDebugCounter ctrWriteBundleAdd;
@@ -94,7 +94,7 @@ public class OFConnectionCounters {
     private final IDebugCounter ctrReadSetAsync;
     private final IDebugCounter ctrReadTableMod;
     private final IDebugCounter ctrReadRoleStatus;
-    private final IDebugCounter ctrReadTableStatus;   
+    private final IDebugCounter ctrReadTableStatus;
     private final IDebugCounter ctrReadBundleAdd;
     private final IDebugCounter ctrReadBundleControl;
     private final IDebugCounter ctrReadRequestForward;
@@ -115,10 +115,10 @@ public class OFConnectionCounters {
                                        String messageType){
         String counterHierarchy = stringId + hierarchy + "/" + messageType;
         String counterDescription = "Number of " + messageType +
-                                        " messages in this connection";
+                " messages in this connection";
 
         return countersService.registerCounter(COUNTER_MODULE, counterHierarchy,
-                                               counterDescription);
+                counterDescription);
     }
 
     public OFConnectionCounters(IDebugCounterService counters,
@@ -132,391 +132,391 @@ public class OFConnectionCounters {
         String stringId = dpid.toString() +":" + auxId.toString();
         dpidAndConnIdString = stringId;
         String hierarchy = "/write";
-        
+
         debugCounterService = counters;
 
         // every level of the hierarchical counter has to be registered
         // even if they are not used
 
         counters.registerCounter(COUNTER_MODULE, stringId ,
-                                 "Counter for this connection");
+                "Counter for this connection");
 
         registerCounterLocal(counters,
-                             hierarchy,
-                             stringId,
-                             "");
+                hierarchy,
+                stringId,
+                "");
 
         ctrWriteHello =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.HELLO.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.HELLO.toString());
         ctrWriteError =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ERROR.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ERROR.toString());
         ctrWriteEchoRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ECHO_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ECHO_REQUEST.toString());
         ctrWriteEchoReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ECHO_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ECHO_REPLY.toString());
         ctrWriteExperimenter =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.EXPERIMENTER.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.EXPERIMENTER.toString());
         ctrWriteFeaturesRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.FEATURES_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.FEATURES_REQUEST.toString());
         ctrWriteFeaturesReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.FEATURES_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.FEATURES_REPLY.toString());
         ctrWriteGetConfigRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GET_CONFIG_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GET_CONFIG_REQUEST.toString());
         ctrWriteGetConfigReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GET_CONFIG_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GET_CONFIG_REPLY.toString());
         ctrWriteSetConfig =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.SET_CONFIG.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.SET_CONFIG.toString());
         ctrWritePacketIn =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.PACKET_IN.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.PACKET_IN.toString());
         ctrWritePacketOut =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.PACKET_OUT.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.PACKET_OUT.toString());
         ctrWriteFlowRemoved =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.FLOW_REMOVED.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.FLOW_REMOVED.toString());
         ctrWritePortStatus =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.PORT_STATUS.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.PORT_STATUS.toString());
         ctrWriteFlowMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.FLOW_MOD.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.FLOW_MOD.toString());
         ctrWritePortMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.PORT_MOD.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.PORT_MOD.toString());
         ctrWriteStatsRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.STATS_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.STATS_REQUEST.toString());
         ctrWriteStatsReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.STATS_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.STATS_REPLY.toString());
         ctrWriteBarrierRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.BARRIER_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.BARRIER_REQUEST.toString());
         ctrWriteBarrierReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.BARRIER_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.BARRIER_REPLY.toString());
         ctrWriteGetAsyncReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GET_ASYNC_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GET_ASYNC_REPLY.toString());
         ctrWriteGetAsyncRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GET_ASYNC_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GET_ASYNC_REQUEST.toString());
         ctrWriteGroupMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GROUP_MOD.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GROUP_MOD.toString());
         ctrWriteMeterMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.METER_MOD.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.METER_MOD.toString());
         ctrWriteQueueGetConfigReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.QUEUE_GET_CONFIG_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.QUEUE_GET_CONFIG_REPLY.toString());
         ctrWriteQueueGetConfigRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.QUEUE_GET_CONFIG_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.QUEUE_GET_CONFIG_REQUEST.toString());
         ctrWriteRoleReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ROLE_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ROLE_REPLY.toString());
         ctrWriteRoleRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ROLE_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ROLE_REQUEST.toString());
         ctrWriteSetAsync =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.SET_ASYNC.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.SET_ASYNC.toString());
         ctrWriteTableMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.TABLE_MOD.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.TABLE_MOD.toString());
+
         ctrWriteBundleAdd =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.BUNDLE_ADD_MESSAGE.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.BUNDLE_ADD_MESSAGE.toString());
+
         ctrWriteBundleControl =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.BUNDLE_CONTROL.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.BUNDLE_CONTROL.toString());
+
         ctrWriteRequestForward =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.REQUESTFORWARD.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.REQUESTFORWARD.toString());
+
         ctrWriteRoleStatus =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ROLE_STATUS.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.ROLE_STATUS.toString());
+
         ctrWriteTableStatus =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.TABLE_STATUS.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.TABLE_STATUS.toString());
 
         // Register Read Counters
         //
         hierarchy = "/read";
 
         registerCounterLocal(counters,
-                             hierarchy,
-                             stringId,
-                             "");
+                hierarchy,
+                stringId,
+                "");
         ctrReadHello =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.HELLO.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.HELLO.toString());
         ctrReadError =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ERROR.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ERROR.toString());
         ctrReadEchoRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ECHO_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ECHO_REQUEST.toString());
         ctrReadEchoReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ECHO_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ECHO_REPLY.toString());
         ctrReadExperimenter =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.EXPERIMENTER.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.EXPERIMENTER.toString());
         ctrReadFeaturesRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.FEATURES_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.FEATURES_REQUEST.toString());
         ctrReadFeaturesReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.FEATURES_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.FEATURES_REPLY.toString());
         ctrReadGetConfigRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GET_CONFIG_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GET_CONFIG_REQUEST.toString());
         ctrReadGetConfigReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GET_CONFIG_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GET_CONFIG_REPLY.toString());
         ctrReadSetConfig =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.SET_CONFIG.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.SET_CONFIG.toString());
         ctrReadPacketIn =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.PACKET_IN.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.PACKET_IN.toString());
         ctrReadPacketOut =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.PACKET_OUT.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.PACKET_OUT.toString());
         ctrReadFlowRemoved =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.FLOW_REMOVED.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.FLOW_REMOVED.toString());
         ctrReadPortStatus =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.PORT_STATUS.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.PORT_STATUS.toString());
         ctrReadFlowMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.FLOW_MOD.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.FLOW_MOD.toString());
         ctrReadPortMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.PORT_MOD.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.PORT_MOD.toString());
         ctrReadStatsRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.STATS_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.STATS_REQUEST.toString());
         ctrReadStatsReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.STATS_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.STATS_REPLY.toString());
         ctrReadBarrierRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.BARRIER_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.BARRIER_REQUEST.toString());
         ctrReadBarrierReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.BARRIER_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.BARRIER_REPLY.toString());
         ctrReadGetAsyncReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GET_ASYNC_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GET_ASYNC_REPLY.toString());
         ctrReadGetAsyncRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GET_ASYNC_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GET_ASYNC_REQUEST.toString());
         ctrReadGroupMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.GROUP_MOD.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.GROUP_MOD.toString());
         ctrReadMeterMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.METER_MOD.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.METER_MOD.toString());
         ctrReadQueueGetConfigReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.QUEUE_GET_CONFIG_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.QUEUE_GET_CONFIG_REPLY.toString());
         ctrReadQueueGetConfigRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.QUEUE_GET_CONFIG_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.QUEUE_GET_CONFIG_REQUEST.toString());
         ctrReadRoleReply =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ROLE_REPLY.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ROLE_REPLY.toString());
         ctrReadRoleRequest =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ROLE_REQUEST.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.ROLE_REQUEST.toString());
         ctrReadSetAsync =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.SET_ASYNC.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.SET_ASYNC.toString());
         ctrReadTableMod =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.TABLE_MOD.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.TABLE_MOD.toString());
+
         ctrReadBundleAdd =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.BUNDLE_ADD_MESSAGE.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.BUNDLE_ADD_MESSAGE.toString());
+
         ctrReadBundleControl =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.BUNDLE_CONTROL.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.BUNDLE_CONTROL.toString());
+
         ctrReadRequestForward =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.REQUESTFORWARD.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.REQUESTFORWARD.toString());
+
         ctrReadRoleStatus =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.ROLE_STATUS.toString());
-        
+                        hierarchy,
+                        stringId,
+                        OFType.ROLE_STATUS.toString());
+
         ctrReadTableStatus =
                 registerCounterLocal(counters,
-                                     hierarchy,
-                                     stringId,
-                                     OFType.TABLE_STATUS.toString());
+                        hierarchy,
+                        stringId,
+                        OFType.TABLE_STATUS.toString());
     }
-    
+
     /**
      * Remove all counters from the IDebugCounterService. Should be done
      * if the switch connection disconnects from the controller, in which case all
@@ -524,15 +524,15 @@ public class OFConnectionCounters {
      * @return true if successful; false if counter hierarchy was not found
      */
     public boolean uninstallCounters() {
-    	return debugCounterService.removeCounterHierarchy(COUNTER_MODULE, dpidAndConnIdString);
+        return debugCounterService.removeCounterHierarchy(COUNTER_MODULE, dpidAndConnIdString);
     }
 
-   /**
-    * Update Write Counters for Open flow messages
-    * @param ofm openflow message
-    */
-   public void updateWriteStats(OFMessage ofm) {
-         switch(ofm.getType()){
+    /**
+     * Update Write Counters for Open flow messages
+     * @param ofm openflow message
+     */
+    public void updateWriteStats(OFMessage ofm) {
+        switch(ofm.getType()){
             case BARRIER_REPLY:
                 ctrWriteBarrierReply.increment();
                 break;
@@ -652,184 +652,184 @@ public class OFConnectionCounters {
             case TABLE_MOD:
                 ctrWriteTableMod.increment();
                 break;
-                
+
             case BUNDLE_ADD_MESSAGE:
                 ctrWriteBundleAdd.increment();
                 break;
-                
+
             case BUNDLE_CONTROL:
                 ctrWriteBundleControl.increment();
                 break;
-                
+
             case REQUESTFORWARD:
                 ctrWriteRequestForward.increment();
                 break;
-                
+
             case ROLE_STATUS:
                 ctrWriteRoleStatus.increment();
                 break;
-                
+
             case TABLE_STATUS:
                 ctrWriteTableStatus.increment();
                 break;
-                
+
             default:
                 logger.warn(ofm.getType().toString() +
-                            ": Invalid OpenFlow Messaqe!");
+                        ": Invalid OpenFlow Messaqe!");
                 break;
-         }
+        }
     }
 
-   /**
-    * Update Read openflow counters for this connection
-    * @param ofm Open Flow Message
-    */
-   public void updateReadStats(OFMessage ofm){
-       switch(ofm.getType()){
-           case BARRIER_REPLY:
-               ctrReadBarrierReply.increment();
-               break;
+    /**
+     * Update Read openflow counters for this connection
+     * @param ofm Open Flow Message
+     */
+    public void updateReadStats(OFMessage ofm){
+        switch(ofm.getType()){
+            case BARRIER_REPLY:
+                ctrReadBarrierReply.increment();
+                break;
 
-           case BARRIER_REQUEST:
-               ctrReadBarrierRequest.increment();
-               break;
+            case BARRIER_REQUEST:
+                ctrReadBarrierRequest.increment();
+                break;
 
-           case ECHO_REPLY:
-               ctrReadEchoReply.increment();
-               break;
+            case ECHO_REPLY:
+                ctrReadEchoReply.increment();
+                break;
 
-           case ECHO_REQUEST:
-               ctrReadEchoRequest.increment();
-               break;
+            case ECHO_REQUEST:
+                ctrReadEchoRequest.increment();
+                break;
 
-           case ERROR:
-               ctrReadError.increment();
-               break;
+            case ERROR:
+                ctrReadError.increment();
+                break;
 
-           case EXPERIMENTER:
-               ctrReadExperimenter.increment();
-               break;
+            case EXPERIMENTER:
+                ctrReadExperimenter.increment();
+                break;
 
-           case FEATURES_REPLY:
-               ctrReadFeaturesReply.increment();
-               break;
+            case FEATURES_REPLY:
+                ctrReadFeaturesReply.increment();
+                break;
 
-           case FEATURES_REQUEST:
-               ctrReadFeaturesRequest.increment();
-               break;
+            case FEATURES_REQUEST:
+                ctrReadFeaturesRequest.increment();
+                break;
 
-           case FLOW_MOD:
-               ctrReadFlowMod.increment();
-               break;
+            case FLOW_MOD:
+                ctrReadFlowMod.increment();
+                break;
 
-           case FLOW_REMOVED:
-               ctrReadFlowRemoved.increment();
-               break;
+            case FLOW_REMOVED:
+                ctrReadFlowRemoved.increment();
+                break;
 
-           case GET_ASYNC_REPLY:
-               ctrReadGetAsyncReply.increment();
-               break;
+            case GET_ASYNC_REPLY:
+                ctrReadGetAsyncReply.increment();
+                break;
 
-           case GET_ASYNC_REQUEST:
-               ctrReadGetAsyncRequest.increment();
-               break;
+            case GET_ASYNC_REQUEST:
+                ctrReadGetAsyncRequest.increment();
+                break;
 
-           case GET_CONFIG_REPLY:
-               ctrReadGetConfigReply.increment();
-               break;
+            case GET_CONFIG_REPLY:
+                ctrReadGetConfigReply.increment();
+                break;
 
-           case GET_CONFIG_REQUEST:
-               ctrReadGetConfigRequest.increment();
-               break;
+            case GET_CONFIG_REQUEST:
+                ctrReadGetConfigRequest.increment();
+                break;
 
-           case GROUP_MOD:
-               ctrReadGroupMod.increment();
-               break;
+            case GROUP_MOD:
+                ctrReadGroupMod.increment();
+                break;
 
-           case HELLO:
-               ctrReadHello.increment();
-               break;
+            case HELLO:
+                ctrReadHello.increment();
+                break;
 
-           case METER_MOD:
-               ctrReadMeterMod.increment();
-               break;
+            case METER_MOD:
+                ctrReadMeterMod.increment();
+                break;
 
-           case PACKET_IN:
-               ctrReadPacketIn.increment();
-               break;
+            case PACKET_IN:
+                ctrReadPacketIn.increment();
+                break;
 
-           case PACKET_OUT:
-               ctrReadPacketOut.increment();
-               break;
+            case PACKET_OUT:
+                ctrReadPacketOut.increment();
+                break;
 
-           case PORT_MOD:
-               ctrReadPortMod.increment();
-               break;
+            case PORT_MOD:
+                ctrReadPortMod.increment();
+                break;
 
-           case PORT_STATUS:
-               ctrReadPortStatus.increment();
-               break;
+            case PORT_STATUS:
+                ctrReadPortStatus.increment();
+                break;
 
-           case QUEUE_GET_CONFIG_REPLY:
-               ctrReadQueueGetConfigReply.increment();
-               break;
+            case QUEUE_GET_CONFIG_REPLY:
+                ctrReadQueueGetConfigReply.increment();
+                break;
 
-           case QUEUE_GET_CONFIG_REQUEST:
-               ctrReadQueueGetConfigRequest.increment();
-               break;
+            case QUEUE_GET_CONFIG_REQUEST:
+                ctrReadQueueGetConfigRequest.increment();
+                break;
 
-           case ROLE_REPLY:
-               ctrReadRoleReply.increment();
-               break;
+            case ROLE_REPLY:
+                ctrReadRoleReply.increment();
+                break;
 
-           case ROLE_REQUEST:
-               ctrReadRoleRequest.increment();
-               break;
+            case ROLE_REQUEST:
+                ctrReadRoleRequest.increment();
+                break;
 
-           case SET_ASYNC:
-               ctrReadSetAsync.increment();
-               break;
+            case SET_ASYNC:
+                ctrReadSetAsync.increment();
+                break;
 
-           case SET_CONFIG:
-               ctrReadSetConfig.increment();
-               break;
+            case SET_CONFIG:
+                ctrReadSetConfig.increment();
+                break;
 
-           case STATS_REPLY:
-               ctrReadStatsReply.increment();
-               break;
+            case STATS_REPLY:
+                ctrReadStatsReply.increment();
+                break;
 
-           case STATS_REQUEST:
-               ctrReadStatsRequest.increment();
-               break;
+            case STATS_REQUEST:
+                ctrReadStatsRequest.increment();
+                break;
 
-           case TABLE_MOD:
-               ctrReadTableMod.increment();
-               break;
-               
-           case BUNDLE_ADD_MESSAGE:
-               ctrReadBundleAdd.increment();
-               break;
-               
-           case BUNDLE_CONTROL:
-               ctrReadBundleControl.increment();
-               break;
-               
-           case REQUESTFORWARD:
-               ctrReadRequestForward.increment();
-               break;
-               
-           case ROLE_STATUS:
-               ctrReadRoleStatus.increment();
-               break;
-               
-           case TABLE_STATUS:
-               ctrReadTableStatus.increment();
-               break;
+            case TABLE_MOD:
+                ctrReadTableMod.increment();
+                break;
 
-           default:
-               logger.warn(ofm.getType().toString() +
-                           ": Invalid OpenFlow Messaqe!");
-               break;
+            case BUNDLE_ADD_MESSAGE:
+                ctrReadBundleAdd.increment();
+                break;
+
+            case BUNDLE_CONTROL:
+                ctrReadBundleControl.increment();
+                break;
+
+            case REQUESTFORWARD:
+                ctrReadRequestForward.increment();
+                break;
+
+            case ROLE_STATUS:
+                ctrReadRoleStatus.increment();
+                break;
+
+            case TABLE_STATUS:
+                ctrReadTableStatus.increment();
+                break;
+
+            default:
+                logger.warn(ofm.getType().toString() +
+                        ": Invalid OpenFlow Messaqe!");
+                break;
         }
-   }
+    }
 }
