@@ -1117,11 +1117,14 @@ public class OFSwitchHandshakeHandler implements IOFConnectionListener {
 
         @Override
         void enterState() {
-            if (sw.getOFFactory().getVersion().compareTo(OFVersion.OF_13) < 0) {
-                nextState();
-            } else {
-                sendHandshakeTableFeaturesRequest();
-            }
+            // NB! Some switches post responses the parser cannot handle, skip step
+            nextState();
+
+            // if (sw.getOFFactory().getVersion().compareTo(OFVersion.OF_13) < 0) {
+            //     nextState();
+            // } else {
+            //     sendHandshakeTableFeaturesRequest();
+            // }
         }
 
     }
