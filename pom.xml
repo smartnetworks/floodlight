@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.projectfloodlight</groupId>
     <artifactId>floodlight</artifactId>
-    <version>1.1.4-smartnetworks</version>
+    <version>1.1.5-smartnetworks</version>
     <name>floodlight</name>
     <repositories>
         <repository>
@@ -106,7 +106,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>17.0</version>
+            <version>19.0</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
@@ -183,7 +183,7 @@
         <dependency>
             <groupId>org.objenesis</groupId>
             <artifactId>objenesis</artifactId>
-            <version>1.2</version>
+            <version>2.6</version>
         </dependency>
         <dependency>
             <groupId>org.apache.derby</groupId>
@@ -193,12 +193,12 @@
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
-            <version>2.0.1</version>
+            <version>3.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>annotations</artifactId>
-            <version>2.0.1</version>
+            <version>3.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.hamcrest</groupId>
@@ -218,12 +218,12 @@
         <dependency>
             <groupId>org.projectfloodlight</groupId>
             <artifactId>openflowj</artifactId>
-            <version>0.10.1-smartnetworks</version>
+            <version>0.10.2-smartnetworks</version>
         </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
-            <version>4.0.33.Final</version>
+            <version>4.0.56.Final</version>
         </dependency>
         <!--		<dependency>
                     <groupId>com.fasterxml.jackson.dataformat</groupId>
